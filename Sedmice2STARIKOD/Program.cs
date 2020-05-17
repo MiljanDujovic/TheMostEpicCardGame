@@ -13,13 +13,30 @@ namespace Sevens
         {
             foreach (var card in cards)
             {
-                Console.Write("{0}  ", card.ToString());
-              
+                Console.Write("\n {0}  ", card.ToString());
             }
+            
         }
-  
+        public void create4Cards(string name)
+        {
+            this.cards.Add(new Card(name, 3));
+            this.cards.Add(new Card(name, 4));
+            this.cards.Add(new Card(name, 5));
+            this.cards.Add(new Card(name, 6));
+        }
+        public Card REMOVEat(int index)
+        {
+            Card card = this.cards[index];
+            this.cards.RemoveAt(index);
+            return card;
+        }
+        public void addCard(Card card)
+        {
+            Console.WriteLine("Card added " + card);
+            this.cards.Add(card);
+        }
     }
-    public class Card
+     public class Card
     {
         static public Random rnd = new Random();
         static public int getRandomSymbolIndex()
@@ -43,12 +60,9 @@ namespace Sevens
         static void Main(String[] args)
         {
             Deck deck = new Deck();
-            deck.cards.Add(new Card("8",Card.getRandomSymbolIndex()));
-            deck.cards.Add(new Card("7", Card.getRandomSymbolIndex()));
-            deck.cards.Add(new Card("9", Card.getRandomSymbolIndex()));
+            deck.addCard(new Card("7", 4));
 
-            deck.print();
-
+            
             //Deck deck = new Deck();
             //char input = Console.ReadKey().KeyChar;
             //while (input != 'e')
@@ -61,6 +75,18 @@ namespace Sevens
 
             //    input = Console.ReadKey().KeyChar;
             //}
+                       deck.create4Cards("7");
+            deck.create4Cards("8");
+            deck.create4Cards("9");
+            deck.create4Cards("10");
+            deck.create4Cards("A");
+            deck.create4Cards("J");
+            deck.create4Cards("Q");
+            deck.create4Cards("K");
+            deck.REMOVEat(0);
+            Console.Write("{0} ",deck.REMOVEat(0));
+            deck.print();
+
 
             Console.ReadLine();
         }
