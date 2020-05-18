@@ -87,7 +87,8 @@ namespace Sevens
             Console.Write("{0} ",deck.REMOVEat(0));
             deck.print();
 
-
+            Console.WriteLine();
+            Console.WriteLine("Ja sam Mećava i volim da mećavam");
             Console.ReadLine();
         }
 
