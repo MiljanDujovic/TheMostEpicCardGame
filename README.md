@@ -1,2 +1,0 @@
-# najjaceImeIkad
- OJSAAAAAAAAAAAAAAAA
