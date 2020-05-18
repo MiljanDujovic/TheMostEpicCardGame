@@ -43,6 +43,7 @@ namespace Sevens
         {
             return rnd.Next(3, 7);
         }
+
         public string name;
         public char symbol;
         public Card(string name, int symbol)
@@ -60,9 +61,9 @@ namespace Sevens
         static void Main(String[] args)
         {
             Deck deck = new Deck();
-            deck.addCard(new Card("7", 4));
+            //deck.addCard(new Card("7", 4));
 
-            
+
             //Deck deck = new Deck();
             //char input = Console.ReadKey().KeyChar;
             //while (input != 'e')
@@ -75,16 +76,23 @@ namespace Sevens
 
             //    input = Console.ReadKey().KeyChar;
             //}
-                       deck.create4Cards("7");
-            deck.create4Cards("8");
-            deck.create4Cards("9");
-            deck.create4Cards("10");
-            deck.create4Cards("A");
-            deck.create4Cards("J");
-            deck.create4Cards("Q");
-            deck.create4Cards("K");
-            deck.REMOVEat(0);
-            Console.Write("{0} ",deck.REMOVEat(0));
+            string[] a = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+            Random r = new Random();
+            for (int i = 0; i < 32; i++)
+            {
+                deck.addCard(new Card(a[r.Next(0, 7)],r.Next(3,7)));
+
+            }
+            //deck.create4Cards("7");
+            //deck.create4Cards("8");
+            //deck.create4Cards("9");
+            //deck.create4Cards("10");
+            //deck.create4Cards("A");
+            //deck.create4Cards("J");
+            //deck.create4Cards("Q");
+            //deck.create4Cards("K");
+            //deck.REMOVEat(0);
+            //Console.Write("{0} ",deck.REMOVEat(0));
             deck.print();
 
             Console.WriteLine();
