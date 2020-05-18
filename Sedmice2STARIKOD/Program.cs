@@ -17,7 +17,7 @@ namespace Sevens
             }
             
         }
-        public bool isContains(Card card)
+        public bool contains(Card card)
         {
             foreach (Card c in cards)
             {
@@ -29,7 +29,7 @@ namespace Sevens
             }
             return false;
         }
-        public void create4Cards(string name)
+        public void createSuite(string name)
         {
             this.cards.Add(new Card(name, 3));
             this.cards.Add(new Card(name, 4));
@@ -73,51 +73,19 @@ namespace Sevens
         static void Main(String[] args)
         {
             Deck deck = new Deck();
-            //deck.addCard(new Card("7", 4));
-            //deck.addCard(new Card("8", 5));
-            
-            //if (deck.isContains(new Card("7", 4)))
-            //{
-            //    Console.WriteLine("Sadrzi");
-            //}
-            //Deck deck = new Deck();
-            //char input = Console.ReadKey().KeyChar;
-            //while (input != 'e')
-            //{
-            //    Card card = new Card(input.ToString(), rnd.Next(3, 7));
-            //    deck.cards.Add(card);
 
-            //    Console.Clear();
-            //    deck.print();
-
-            //    input = Console.ReadKey().KeyChar;
-            //}
-
-
-            string[] a = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+            string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
             Random r = new Random();
             for (int i = 0; i < 32; i++)
             {
-                deck.addCard(new Card(a[r.Next(0, a.Length)], r.Next(3, 7)));
-                if (deck.isContains(card))
+                Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
+                
+                if (!deck.contains(card))
                 {
-                    Console.WriteLine("Duplikat");
+                    deck.addCard(card);
+                    
                 }
             }
-
-
-
-            //deck.create4Cards("7");
-            //deck.create4Cards("8");
-            //deck.create4Cards("9");
-            //deck.create4Cards("10");
-            //deck.create4Cards("A");
-            //deck.create4Cards("J");
-            //deck.create4Cards("Q");
-            //deck.create4Cards("K");
-            //deck.REMOVEat(0);
-            //Console.Write("{0} ",deck.REMOVEat(0));
-
 
             Console.WriteLine();
             Console.WriteLine("Ja sam Mećava i volim da mećavam");
@@ -125,10 +93,5 @@ namespace Sevens
             Console.ReadLine();
 
         }
-
-
-
-            
-        
     }
 }
