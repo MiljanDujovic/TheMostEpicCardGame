@@ -36,7 +36,7 @@ namespace Sevens
             this.cards.Add(new Card(name, 5));
             this.cards.Add(new Card(name, 6));
         }
-        public Card REMOVEat(int index)
+        public Card removeAt(int index)
         {
             Card card = this.cards[index];
             this.cards.RemoveAt(index);
@@ -83,7 +83,6 @@ namespace Sevens
                 if (!deck.contains(card))
                 {
                     deck.addCard(card);
-                    
                 }
             }
 
