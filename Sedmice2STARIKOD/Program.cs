@@ -18,7 +18,7 @@ namespace Sevens
             }
 
         }
-        public bool contains(Card card)
+        public bool contains(Card card)//(string cardName, int cardSymbol)
         {
             foreach (Card c in cards)
             {
@@ -90,6 +90,10 @@ namespace Sevens
                 {
                     i--;
                 }
+            }
+            if (deck.contains(new Card("7",3)))
+            {
+
             }
 
                     //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
