@@ -94,14 +94,19 @@ namespace Sevens
             //}
 
 
-            string[] a = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+            string[] newCard = { "7", "8", "9", "10", "A", "J", "Q", "K" };
             Random r = new Random();
             for (int i = 0; i < 32; i++)
             {
-                deck.addCard(new Card(a[r.Next(0, a.Length)], r.Next(3, 7)));
-                if (deck.isContains(card))
+                Card card = new Card(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
+                
+                if (!deck.isContains(card))
                 {
-                    Console.WriteLine("Duplikat");
+                    deck.addCard(card);
+                }
+                else
+                {
+                    i--;
                 }
             }
 
