@@ -7,7 +7,8 @@ using System.Collections;
 
 namespace Sevens
 {
-    public class Deck {
+    public class Deck
+    {
         public List<Card> cards = new List<Card>();
         public void print()
         {
@@ -15,7 +16,7 @@ namespace Sevens
             {
                 Console.Write("\n {0}  ", card.ToString());
             }
-            
+
         }
         public bool contains(Card card)
         {
@@ -25,7 +26,7 @@ namespace Sevens
                 {
                     return true;
                 }
- 
+
             }
             return false;
         }
@@ -48,7 +49,7 @@ namespace Sevens
             this.cards.Add(card);
         }
     }
-     public class Card
+    public class Card
     {
         static public Random rnd = new Random();
         static public int getRandomSymbolIndex()
@@ -65,7 +66,7 @@ namespace Sevens
         }
         public override string ToString()
         {
-            return name+symbol;
+            return name + symbol;
         }
     }
     class Program
@@ -74,40 +75,43 @@ namespace Sevens
         {
             Deck deck = new Deck();
 
-<<<<<<< HEAD
 
             string[] newCard = { "7", "8", "9", "10", "A", "J", "Q", "K" };
             Random r = new Random();
             for (int i = 0; i < 32; i++)
             {
                 Card card = new Card(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
-                
-                if (!deck.isContains(card))
+
+                if (!deck.contains(card))
                 {
                     deck.addCard(card);
                 }
                 else
                 {
                     i--;
-=======
-            string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
-            Random r = new Random();
-            for (int i = 0; i < 32; i++)
-            {
-                Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
-                
-                if (!deck.contains(card))
-                {
-                    deck.addCard(card);
->>>>>>> b1e0f05f2a4180a36650fd96cc6f88500f668def
                 }
             }
 
-            Console.WriteLine();
-            Console.WriteLine("Ja sam Mećava i volim da mećavam");
-            
-            Console.ReadLine();
+                    //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+                    //Random r = new Random();
+                    //for (int i = 0; i < 32; i++)
+                    //{
+                    //    Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
 
+                    //    if (!deck.contains(card))
+                    //    {
+                    //        deck.addCard(card);
+
+                    //    }
+                    //}
+
+              Console.WriteLine();
+              Console.WriteLine("Ja sam Mećava i volim da mećavam");
+
+              Console.ReadLine();
+
+                
+            
         }
     }
 }
