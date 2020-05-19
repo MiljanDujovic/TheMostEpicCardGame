@@ -17,7 +17,7 @@ namespace Sevens
             }
             
         }
-        public bool isContains(Card card)
+        public bool contains(Card card)
         {
             foreach (Card c in cards)
             {
@@ -29,14 +29,14 @@ namespace Sevens
             }
             return false;
         }
-        public void create4Cards(string name)
+        public void createSuite(string name)
         {
             this.cards.Add(new Card(name, 3));
             this.cards.Add(new Card(name, 4));
             this.cards.Add(new Card(name, 5));
             this.cards.Add(new Card(name, 6));
         }
-        public Card REMOVEat(int index)
+        public Card removeAt(int index)
         {
             Card card = this.cards[index];
             this.cards.RemoveAt(index);
@@ -73,26 +73,8 @@ namespace Sevens
         static void Main(String[] args)
         {
             Deck deck = new Deck();
-            //deck.addCard(new Card("7", 4));
-            //deck.addCard(new Card("8", 5));
-            
-            //if (deck.isContains(new Card("7", 4)))
-            //{
-            //    Console.WriteLine("Sadrzi");
-            //}
-            //Deck deck = new Deck();
-            //char input = Console.ReadKey().KeyChar;
-            //while (input != 'e')
-            //{
-            //    Card card = new Card(input.ToString(), rnd.Next(3, 7));
-            //    deck.cards.Add(card);
 
-            //    Console.Clear();
-            //    deck.print();
-
-            //    input = Console.ReadKey().KeyChar;
-            //}
-
+<<<<<<< HEAD
 
             string[] newCard = { "7", "8", "9", "10", "A", "J", "Q", "K" };
             Random r = new Random();
@@ -107,22 +89,19 @@ namespace Sevens
                 else
                 {
                     i--;
+=======
+            string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+            Random r = new Random();
+            for (int i = 0; i < 32; i++)
+            {
+                Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
+                
+                if (!deck.contains(card))
+                {
+                    deck.addCard(card);
+>>>>>>> b1e0f05f2a4180a36650fd96cc6f88500f668def
                 }
             }
-
-
-
-            //deck.create4Cards("7");
-            //deck.create4Cards("8");
-            //deck.create4Cards("9");
-            //deck.create4Cards("10");
-            //deck.create4Cards("A");
-            //deck.create4Cards("J");
-            //deck.create4Cards("Q");
-            //deck.create4Cards("K");
-            //deck.REMOVEat(0);
-            //Console.Write("{0} ",deck.REMOVEat(0));
-
 
             Console.WriteLine();
             Console.WriteLine("Ja sam Mećava i volim da mećavam");
@@ -130,10 +109,5 @@ namespace Sevens
             Console.ReadLine();
 
         }
-
-
-
-            
-        
     }
 }
