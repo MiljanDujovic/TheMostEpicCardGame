@@ -14,9 +14,15 @@ namespace Sevens
         {
             foreach (var card in cards)
             {
-                Console.Write("\n {0}  ", card.ToString());
+                Console.Write("{0} ", card.ToString());
             }
 
+        }
+        public Card createCard(string name, int symbol)
+        {
+            Card card = new Card(name, symbol);
+            this.cards.Add(card);
+            return card;
         }
         public bool contains(Card card)//(string cardName, int cardSymbol)
         {
@@ -76,25 +82,35 @@ namespace Sevens
             Deck deck = new Deck();
 
 
-            string[] newCard = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+            string[] newCard = { "A", "J", "Q", "K" };
             Random r = new Random();
-            for (int i = 0; i < 32; i++)
-            {
-                Card card = new Card(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
+            //for (int i = 0; i < 32; i++)
+            //{
+            //    Card card = new Card(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
 
-                if (!deck.contains(card))
-                {
-                    deck.addCard(card);
-                }
-                else
-                {
-                    i--;
-                }
-            }
-            if (deck.contains(new Card("7",3)))
-            {
+            //    if (!deck.contains(card))
+            //    {
+            //        deck.addCard(card);
+            //    }
+            //    else
+            //    {
+            //        i--;
+            //    }
+            //}
+            //if (deck.contains(new Card("7",3)))
+            //{
 
+            //}
+            
+            //Console.WriteLine("nova karta createCard metoda {0}", deck.createCard("8",4));
+            int count = 0;
+            while (count <8)
+            {
+                deck.createCard(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
+                count++;
             }
+            
+            deck.print();
 
                     //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
                     //Random r = new Random();
