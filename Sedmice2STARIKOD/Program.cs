@@ -18,17 +18,62 @@ namespace Sevens
             }
 
         }
-        public Card createCard(string name, int symbol)
+        public Deck addCard(string name, int symbol)
         {
             Card card = new Card(name, symbol);
             this.cards.Add(card);
-            return card;
+            return this;
         }
-        public bool contains(Card card)//(string cardName, int cardSymbol)
+        public bool addUnique(string name, int symbol, bool unique = false)
+        {
+            if (!contains(name, symbol))
+            {
+                Card card = new Card(name, symbol);
+                this.cards.Add(card);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        } 
+        public bool addUnique(Card card)
+        {
+            if (!contains(card))
+            {
+                this.cards.Add(card);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public Deck addCard(Card card)
+        {
+            //Console.WriteLine("Card added " + card);
+            this.cards.Add(card);
+            return this;
+        }
+        public bool contains(Card card)
         {
             foreach (Card c in cards)
             {
                 if ((c.name == card.name) & (c.symbol == card.symbol))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+        public bool contains(string name, int symbol)
+        {
+            foreach (Card c in cards)
+            {
+                if ((c.name == name) & (c.symbol == symbol))
                 {
                     return true;
                 }
@@ -49,11 +94,7 @@ namespace Sevens
             this.cards.RemoveAt(index);
             return card;
         }
-        public void addCard(Card card)
-        {
-            Console.WriteLine("Card added " + card);
-            this.cards.Add(card);
-        }
+        
     }
     public class Card
     {
@@ -65,9 +106,10 @@ namespace Sevens
 
         public string name;
         public char symbol;
-        public Card(string name, int symbol)
+        public Card(string name, int symbol, int color = 0)
         {
             this.name = name;
+
             this.symbol = Convert.ToChar(symbol);
         }
         public override string ToString()
@@ -101,31 +143,67 @@ namespace Sevens
             //{
 
             //}
-            
+
             //Console.WriteLine("nova karta createCard metoda {0}", deck.createCard("8",4));
-            int count = 0;
-            while (count <8)
+            //do
+            //{
+            //    string name = newCard[r.Next(0, newCard.Length)];
+            //    int symbol = r.Next(3, 7);
+            //    //if (!deck.contains(name, symbol))
+            //    //{
+            //    //    deck.addCard(name, symbol);
+            //    //    deck.addCard(new Card(name, symbol)); //isto braleouu deck.createCard(name,symbol);
+            //    //}
+            //    deck.addUnique(name, symbol);
+            //} while (deck.cards.Count < 8);
+
+            //deck.addCard(new Card("8", 2)).addCard("8", 1).addCard("8", 2).addCard(new Card("8", 1));
+            //deck.addCard("8", 3);
+            //deck.addCard("8", 3);
+            //deck.addUnique("8", 3);
+            Deck first = new Deck();
+            Deck second = new Deck();
+            for (int i = 0; i < 16; i++)
             {
-                deck.createCard(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
-                count++;
+                string name = newCard[r.Next(0, newCard.Length)];
+                int symbol = r.Next(3, 7);
+                if (!first.contains(name, symbol))
+                {
+                    first.addCard(name, symbol);
+                }
+                else
+                {
+                    if (!second.contains(name,symbol))
+                    {
+                        second.addCard(name, symbol);
+                    }
+                    else
+                    {
+                        Console.WriteLine("duplikat papane {0}{1}",name, Convert.ToChar(symbol));
+                        i--;
+                    }
+                    
+                }
             }
-            
-            deck.print();
+            first.print();
+            Console.WriteLine();
+            second.print();
 
-                    //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
-                    //Random r = new Random();
-                    //for (int i = 0; i < 32; i++)
-                    //{
-                    //    Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
+            //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+            //Random r = new Random();
+            //for (int i = 0; i < 32; i++)
+            //{
+            //    Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
 
-                    //    if (!deck.contains(card))
-                    //    {
-                    //        deck.addCard(card);
+            //    if (!deck.contains(card))
+            //    {
+            //        deck.addCard(card);
 
-                    //    }
-                    //}
+            //    }
+            //}
 
-              Console.WriteLine();
+
+            Console.WriteLine();
               Console.WriteLine("Ja sam Mećava i volim da mećavam");
 
               Console.ReadLine();
