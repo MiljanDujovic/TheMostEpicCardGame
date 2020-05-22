@@ -120,14 +120,6 @@ namespace Sevens
         {
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write("{0}", this.name);           
-            //if (this.symbol == 3 ^ this.symbol == 4)
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //}
-            //else
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Black;
-            //}
             Console.ForegroundColor = (this.symbol == 3 ^ this.symbol == 4) ? ConsoleColor.Red : ConsoleColor.Black;
             Console.Write("{0} ", this.symbol.ToString());
         }
@@ -138,101 +130,24 @@ namespace Sevens
         {
             Console.BackgroundColor = ConsoleColor.White;
             Console.Clear();
+
             Deck deck = new Deck();
 
-
-            string[] newCard = { "A", "J", "Q", "K" };
-            Random r = new Random();
-            //for (int i = 0; i < 32; i++)
-            //{
-            //    Card card = new Card(newCard[r.Next(0, newCard.Length)], r.Next(3, 7));
-
-            //    if (!deck.contains(card))
-            //    {
-            //        deck.addCard(card);
-            //    }
-            //    else
-            //    {
-            //        i--;
-            //    }
-            //}
-            //if (deck.contains(new Card("7",3)))
-            //{
-
-            //}
-
-            //Console.WriteLine("nova karta createCard metoda {0}", deck.createCard("8",4));
-            //do
-            //{
-            //    string name = newCard[r.Next(0, newCard.Length)];
-            //    int symbol = r.Next(3, 7);
-            //    //if (!deck.contains(name, symbol))
-            //    //{
-            //    //    deck.addCard(name, symbol);
-            //    //    deck.addCard(new Card(name, symbol)); //isto braleouu deck.createCard(name,symbol);
-            //    //}
-            //    deck.addUnique(name, symbol);
-            //} while (deck.cards.Count < 8);
-
-            ////deck.addCard(new Card("8", 2)).addCard("8", 1).addCard("8", 2).addCard(new Card("8", 1));
-            //deck.addCard("8", 3);
-            //deck.addCard("8", 3);
-            //deck.addUnique("8", 3);
-            Deck first = new Deck();
-            Deck second = new Deck();
-            for (int i = 0; i < 16; i++)
+            deck.addCard("8", 3);
+            if (deck.contains("8", 3) || deck.addUnique("K", 3))
             {
-                string name = newCard[r.Next(0, newCard.Length)];
-                int symbol = r.Next(3, 7);
-                if (!first.contains(name, symbol))
-                {
-                    first.addCard(name, symbol);
-                }
-                else
-                {
-                    if (!second.contains(name,symbol))
-                    {
-                        second.addCard(name, symbol);
-                    }
-                    else Console.WriteLine("duplikat");
-
-
-                    if (!second.addUnique(name,symbol))
-                    {
-                        Console.WriteLine("duplikat");
-                    }
-                }
-               
+                Console.WriteLine("IDI DEDA");
             }
-            first.print();
+            if (deck.contains("8", 3) | deck.addUnique("Q", 3))
+            {
+                Console.WriteLine("U LAS VEGAS");
+            }
+
             Console.WriteLine();
-            second.print();
-
-            Card c1 = first.cards[0];
-            Card c2 = first.cards[1];
-            Console.WriteLine(((c1.symbol==3^c1.symbol==4)&(c2.symbol==3^c2.symbol==4)^ (c1.symbol == 5 ^ c1.symbol == 6) & (c2.symbol == 5 ^ c2.symbol == 6)) ? "ista booja" : "razlicta boja");
-
-            //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
-            //Random r = new Random();
-            //for (int i = 0; i < 32; i++)
-            //{
-            //    Card card = new Card(cardNames[r.Next(0, cardNames.Length)], r.Next(3, 7));
-
-            //    if (!deck.contains(card))
-            //    {
-            //        deck.addCard(card);
-
-            //    }
-            //}
             Console.WriteLine();
-              Console.WriteLine("Ja sam Mećava i volim da mećavam");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("12");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("56");
+            deck.print();
             Console.WriteLine();
-
-              Console.ReadLine();
+            Console.ReadLine();
 
                 
             

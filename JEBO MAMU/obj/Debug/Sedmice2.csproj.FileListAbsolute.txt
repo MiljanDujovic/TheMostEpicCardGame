@@ -23,3 +23,10 @@ C:\Personal\Projects\najjaceImeIkad\Sedmice2STARIKOD\obj\Debug\Sedmice2.csprojAs
 C:\Personal\Projects\najjaceImeIkad\Sedmice2STARIKOD\obj\Debug\Sedmice2.csproj.CoreCompileInputs.cache
 C:\Personal\Projects\najjaceImeIkad\Sedmice2STARIKOD\obj\Debug\Sedmice2.exe
 C:\Personal\Projects\najjaceImeIkad\Sedmice2STARIKOD\obj\Debug\Sedmice2.pdb
+C:\Personal\Projects\MECAVA\JEBO MAMU\bin\Debug\Sedmice2.exe.config
+C:\Personal\Projects\MECAVA\JEBO MAMU\bin\Debug\Sedmice2.exe
+C:\Personal\Projects\MECAVA\JEBO MAMU\bin\Debug\Sedmice2.pdb
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\Sedmice2.csprojAssemblyReference.cache
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\Sedmice2.csproj.CoreCompileInputs.cache
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\Sedmice2.exe
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\Sedmice2.pdb
