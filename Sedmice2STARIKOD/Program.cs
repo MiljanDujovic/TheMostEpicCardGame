@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Threading.Tasks;
 
 namespace Sevens
 {
@@ -14,15 +15,14 @@ namespace Sevens
         {
             foreach (var card in cards)
             {
-                Console.Write("{0} ", card.ToString());
+                card.print(); 
             }
 
         }
-        public Deck addCard(string name, int symbol)
+        public void addCard(string name, int symbol)
         {
             Card card = new Card(name, symbol);
             this.cards.Add(card);
-            return this;
         }
         public bool addUnique(string name, int symbol, bool unique = false)
         {
@@ -116,11 +116,28 @@ namespace Sevens
         {
             return name + symbol;
         }
+        public void print()
+        {
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("{0}", this.name);           
+            //if (this.symbol == 3 ^ this.symbol == 4)
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Red;
+            //}
+            //else
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Black;
+            //}
+            Console.ForegroundColor = (this.symbol == 3 ^ this.symbol == 4) ? ConsoleColor.Red : ConsoleColor.Black;
+            Console.Write("{0} ", this.symbol.ToString());
+        }
     }
     class Program
     {
         static void Main(String[] args)
         {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
             Deck deck = new Deck();
 
 
@@ -157,7 +174,7 @@ namespace Sevens
             //    deck.addUnique(name, symbol);
             //} while (deck.cards.Count < 8);
 
-            //deck.addCard(new Card("8", 2)).addCard("8", 1).addCard("8", 2).addCard(new Card("8", 1));
+            ////deck.addCard(new Card("8", 2)).addCard("8", 1).addCard("8", 2).addCard(new Card("8", 1));
             //deck.addCard("8", 3);
             //deck.addCard("8", 3);
             //deck.addUnique("8", 3);
@@ -177,17 +194,23 @@ namespace Sevens
                     {
                         second.addCard(name, symbol);
                     }
-                    else
+                    else Console.WriteLine("duplikat");
+
+
+                    if (!second.addUnique(name,symbol))
                     {
-                        Console.WriteLine("duplikat papane {0}{1}",name, Convert.ToChar(symbol));
-                        i--;
+                        Console.WriteLine("duplikat");
                     }
-                    
                 }
+               
             }
             first.print();
             Console.WriteLine();
             second.print();
+
+            Card c1 = first.cards[0];
+            Card c2 = first.cards[1];
+            Console.WriteLine(((c1.symbol==3^c1.symbol==4)&(c2.symbol==3^c2.symbol==4)^ (c1.symbol == 5 ^ c1.symbol == 6) & (c2.symbol == 5 ^ c2.symbol == 6)) ? "ista booja" : "razlicta boja");
 
             //string[] cardNames = { "7", "8", "9", "10", "A", "J", "Q", "K" };
             //Random r = new Random();
@@ -201,10 +224,13 @@ namespace Sevens
 
             //    }
             //}
-
-
             Console.WriteLine();
               Console.WriteLine("Ja sam Mećava i volim da mećavam");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("12");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("56");
+            Console.WriteLine();
 
               Console.ReadLine();
 
