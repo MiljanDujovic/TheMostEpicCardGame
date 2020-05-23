@@ -1,0 +1,6 @@
+C:\Personal\Projects\MECAVA\JEBO MAMU\bin\Debug\PlayingCards.exe.config
+C:\Personal\Projects\MECAVA\JEBO MAMU\bin\Debug\PlayingCards.exe
+C:\Personal\Projects\MECAVA\JEBO MAMU\bin\Debug\PlayingCards.pdb
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\PlayingCards.csproj.CoreCompileInputs.cache
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\PlayingCards.exe
+C:\Personal\Projects\MECAVA\JEBO MAMU\obj\Debug\PlayingCards.pdb

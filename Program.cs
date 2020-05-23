@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Threading.Tasks;
 
-namespace Sevens
+namespace PlayingCards
 {
     public class Deck
     {
@@ -132,25 +132,11 @@ namespace Sevens
             Console.Clear();
 
             Deck deck = new Deck();
-
             deck.addCard("8", 3);
-            if (deck.contains("8", 3) || deck.addUnique("K", 3))
-            {
-                Console.WriteLine("IDI DEDA");
-            }
-            if (deck.contains("8", 3) | deck.addUnique("Q", 3))
-            {
-                Console.WriteLine("U LAS VEGAS");
-            }
-
-            Console.WriteLine();
-            Console.WriteLine();
+            deck.addCard("8", 3);
+            deck.addCard("8", 3);
             deck.print();
-            Console.WriteLine();
             Console.ReadLine();
-
-                
-            
         }
     }
 }
