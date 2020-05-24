@@ -19,7 +19,7 @@ namespace Sevens
             }
 
         }
-        public void PrintSymbol()
+        public void PrintSymbols()
         {
             foreach (var card in cards)
             {
@@ -168,6 +168,11 @@ namespace Sevens
     }
     class Program
     {
+        static void onKeyPressed(ConsoleKeyInfo keyInfo)
+        {
+            bool b = keyInfo.Key == ConsoleKey.Enter;
+            Console.WriteLine(keyInfo.Key.ToString());
+        }
         static void Main(String[] args)
         {
             Console.BackgroundColor = ConsoleColor.White;
@@ -175,14 +180,13 @@ namespace Sevens
             Console.Clear();
 
             Deck deck = new Deck();
-            deck.addCard(Card.Random());
-            deck.addCard(Card.Random());
-            deck.addCard(Card.Random());
-            deck.addCard(Card.Random());
 
-            Console.WriteLine(deck.cards[0].getColor());
-            deck.PrintSymbol();
-            Console.ReadLine();
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            while (keyInfo.Key != ConsoleKey.Escape)
+            {
+                Program.onKeyPressed(keyInfo);
+                keyInfo = Console.ReadKey(true);
+            }
         }
     }
 }
