@@ -183,9 +183,6 @@ namespace Sevens
             Console.WriteLine(deck.cards[0].getColor());
             deck.PrintSymbol();
             Console.ReadLine();
-
-
-
         }
     }
 }
