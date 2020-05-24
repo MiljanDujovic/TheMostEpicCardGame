@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Threading.Tasks;
 
-namespace PlayingCards
+namespace Sevens
 {
     public class Deck
     {
@@ -15,7 +15,15 @@ namespace PlayingCards
         {
             foreach (var card in cards)
             {
-                card.print(); 
+                card.print();
+            }
+
+        }
+        public void PrintSymbol()
+        {
+            foreach (var card in cards)
+            {
+                card.printSymbol();
             }
 
         }
@@ -37,7 +45,7 @@ namespace PlayingCards
                 return false;
             }
 
-        } 
+        }
         public bool addUnique(Card card)
         {
             if (!contains(card))
@@ -94,7 +102,12 @@ namespace PlayingCards
             this.cards.RemoveAt(index);
             return card;
         }
-        
+        public Card Get(int index)
+        {
+            Card card = cards[index];
+            return card;
+        }
+
     }
     public class Card
     {
@@ -102,6 +115,12 @@ namespace PlayingCards
         static public int getRandomSymbolIndex()
         {
             return rnd.Next(3, 7);
+        }
+        static public string getRandomName()
+        {
+            string[] newName = { "7", "8", "9", "10", "A", "J", "Q", "K" };
+
+            return newName[rnd.Next(0, newName.Length)];
         }
 
         public string name;
@@ -119,24 +138,54 @@ namespace PlayingCards
         public void print()
         {
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write("{0}", this.name);           
-            Console.ForegroundColor = (this.symbol == 3 ^ this.symbol == 4) ? ConsoleColor.Red : ConsoleColor.Black;
+            Console.Write("{0}", this.name);
+            Console.ForegroundColor = getColor() == CardColor.Red ? ConsoleColor.Red : ConsoleColor.Black;
             Console.Write("{0} ", this.symbol.ToString());
         }
+        public void printSymbol()
+        {
+            Console.ForegroundColor = getColor() == CardColor.Red ? ConsoleColor.Red : ConsoleColor.Black;
+            Console.Write("{0} ", this.symbol.ToString());
+        }
+        public CardColor getColor()
+        {
+
+            return (this.symbol == 3 || this.symbol == 4) ? CardColor.Red : CardColor.Black;
+
+
+        }
+        static public Card Random()
+        {
+
+            Card card = new Card(getRandomName(), getRandomSymbolIndex());
+            return card;
+        }
+    }
+    public enum CardColor
+    {
+        Red,
+        Black
     }
     class Program
     {
         static void Main(String[] args)
         {
             Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
 
             Deck deck = new Deck();
-            deck.addCard("8", 3);
-            deck.addCard("8", 3);
-            deck.addCard("8", 3);
-            deck.print();
+            deck.addCard(Card.Random());
+            deck.addCard(Card.Random());
+            deck.addCard(Card.Random());
+            deck.addCard(Card.Random());
+
+            Console.WriteLine(deck.cards[0].getColor());
+            deck.PrintSymbol();
             Console.ReadLine();
+
+
+
         }
     }
 }
